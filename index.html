@@ -11,19 +11,23 @@
         data-sap-ui-libs="sap.m"
         data-sap-ui-compatVersion="edge"
         data-sap-ui-preload="async"
+        data-sap-ui-resourceroots='{"sap.ui.demo.db":"./"}'
     ></script>
     <script>
         //Attach an anonymous function to the 'init' event
         sap.ui.getCore().attachInit(function () {
             //create a JSON model from an object literal
             var oModel = new sap.ui.model.json.JSONModel({
-                greetingText:"Hi,my name is harry"
+                firstName:"Harry",
+                lastName:"Hawk",
+                enabled:true,
+                panelHeaderText:"Data Binding Basics"
             });
            //Assign the model object to the SAPUI5 core
             sap.ui.getCore().setModel(oModel);
 
-            //Display a text element whose text is derived from the model object
-            new sap.m.Text({text:"{/greetingText}"}).placeAt("content");
+            //Display the XML view called "App"
+            new sap.ui.core.mvc.XMLView({viewName:"sap.ui.demo.db.view.App"}).placeAt("content");
         });
     </script>
 </head>
