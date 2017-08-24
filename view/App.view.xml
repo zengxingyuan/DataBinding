@@ -1,11 +1,11 @@
 <mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
-    <Panel headerText="{i18n>paneHeaderText}" class="sapUiResponsiveMargin" width="auto">
+    <Panel headerText="{i18n_de>paneHeaderText}" class="sapUiResponsiveMargin" width="auto">
         <content>
-            <Label text="{i18n>firstName}" class="sapUiSmallMargin" />
+            <Label text="{i18n_de>firstName}" class="sapUiSmallMargin" />
             <Input value="{/firstName}" valueLiveUpdate="true" width="200px" enabled="{/enabled}" />
             <Label text="Last Name" class="sapUiSmallMargin" />
-            <Input value="{i18n>lastName}" valueLiveUpdate="true" width="200px" enabled="{/enabled}" />
-            <CheckBox selected="{/enabled}" text="{i18n>enabled}" />
+            <Input value="{i18n_de>lastName}" valueLiveUpdate="true" width="200px" enabled="{/enabled}" />
+            <CheckBox selected="{/enabled}" text="{i18n_de>enabled}" />
         </content>
     </Panel>
 </mvc:View>
