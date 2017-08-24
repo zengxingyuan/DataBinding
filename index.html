@@ -20,16 +20,22 @@
             var oModel = new sap.ui.model.json.JSONModel({
                 firstName:"Harry",
                 lastName:"Hawk",
-                enabled:true
+                enabled:true,
+                address:{
+                    street: "Dietmar-Hopp-Allee 16",
+                    city: "Walldorf",
+                    zip: "69190",
+                    country: "Germany"
+                }
             });
            //Assign the model object to the SAPUI5 core
             sap.ui.getCore().setModel(oModel);
             //create a resource bundle for language specific texts
             var oResourceModel = new sap.ui.model.resource.ResourceModel({
-                bundleName:"sap.ui.demo.db.i18n.i18n_de"
+                bundleName:"sap.ui.demo.db.i18n.i18n"
             });
             //assign the model object to the SAPUI5 core using the name "i18n"
-            sap.ui.getCore().setModel(oResourceModel,"i18n_de");
+            sap.ui.getCore().setModel(oResourceModel,"i18n");
 
             //Display the XML view called "App"
             new sap.ui.core.mvc.XMLView({viewName:"sap.ui.demo.db.view.App"}).placeAt("content");
