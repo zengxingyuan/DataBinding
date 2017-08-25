@@ -16,6 +16,9 @@
     <script>
         //Attach an anonymous function to the 'init' event
         sap.ui.getCore().attachInit(function () {
+            var oProductModel = new sap.ui.model.json.JSONModel();
+            oProductModel.loadData("./model/Products.json");
+            sap.ui.getCore().setModel(oProductModel,"products");
             //create a JSON model from an object literal
             var oModel = new sap.ui.model.json.JSONModel({
                 firstName:"Harry",

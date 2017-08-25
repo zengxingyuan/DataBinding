@@ -1,6 +1,6 @@
 <mvc:View xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc"
     controllerName="sap.ui.demo.db.controller.App">
-    <Panel headerText="{i18n>pane1HeaderText}" class="sapUiResponsiveMargin" width="auto">
+    <Panel headerText="{i18n>panel1HeaderText}" class="sapUiResponsiveMargin" width="auto">
         <content>
             <Label text="{i18n>firstName}" class="sapUiSmallMargin" />
             <Input value="{/firstName}" valueLiveUpdate="true" width="200px" enabled="{/enabled}" />
@@ -10,7 +10,7 @@
         </content>
     </Panel>
     <Panel
-        headerText="{i18n>pane2HeaderText}" class="sapUiResponsiveMargin" width="auto"
+        headerText="{i18n>panel2HeaderText}" class="sapUiResponsiveMargin" width="auto"
     >
         <content>
             <l:VerticalLayout>
@@ -39,6 +39,36 @@
 					   type: 'sap.ui.model.type.Currency',
 					   formatOptions: {showMeasure: false } }"/>
             </l:VerticalLayout>
+        </content>
+    </Panel>
+    <Panel headerText="{i18n>panel3HeaderText}" class="sapUiResponsiveMargin" width="auto">
+        <content>
+            <List headerText="{i18n>productListTitle}" items="{products>/Products}">
+                <items>
+                    <ObjectListItem title="{products>ProductName}"
+                                    number="{	parts:
+												[
+													{path: 'products>UnitPrice'},
+													{path: '/currencyCode'}
+												],
+											type: 'sap.ui.model.type.Currency',
+											formatOptions: { showMeasure: false }
+										}"
+                                    numberUnit="{/currencyCode}">
+                        <attributes>
+                            <ObjectAttribute text="{products>QuantityPerUnit}"/>
+                            <ObjectAttribute title="{i18n>stockValue}"
+                                             text="{parts: [
+										 			{path: 'products>UnitPrice'},
+										 			{path: 'products>UnitsInStock'},
+										 			{path: '/currencyCode'}
+										 			],
+												formatter: '.formatStockValue'
+												}" />
+                        </attributes>
+                    </ObjectListItem>
+                </items>
+            </List>
         </content>
     </Panel>
 </mvc:View>
